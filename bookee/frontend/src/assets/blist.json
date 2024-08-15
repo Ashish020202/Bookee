@@ -40,7 +40,55 @@
         "name": "story book",
         "title":"this is story book",
         "price":20,
-        "category":"free",
+        "category":"paid",
+        "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
+    },
+    {
+        "id":6,
+        "name": "story book",
+        "title":"this is story book",
+        "price":20,
+        "category":"paid",
+        "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
+    },
+    {
+        "id":7,
+        "name": "story book",
+        "title":"this is story book",
+        "price":20,
+        "category":"paid",
+        "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
+    },
+    {
+        "id":8,
+        "name": "story book",
+        "title":"this is story book",
+        "price":20,
+        "category":"paid",
+        "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
+    },
+    {
+        "id":9,
+        "name": "story book",
+        "title":"this is story book",
+        "price":20,
+        "category":"paid",
+        "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
+    },
+    {
+        "id":10,
+        "name": "story book",
+        "title":"this is story book",
+        "price":20,
+        "category":"paid",
+        "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
+    },
+    {
+        "id":11,
+        "name": "story book",
+        "title":"this is story book",
+        "price":20,
+        "category":"paid",
         "images":"https://img.freepik.com/premium-photo/stack-books-with-colorful-cover-that-says-book_583952-80740.jpg?semt=ais_hybrid"
     }
 ]

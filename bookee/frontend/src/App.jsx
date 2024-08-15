@@ -1,15 +1,18 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
-import Social from "./components/social";
-import Bookcard from "./components/Bookcard";
-import Cards from "./components/Cards";
+import Home from "./Landing/Home";
+import Courses from "./Courses/mcourses";
+
+import { Route,Routes } from "react-router-dom";
+
+
 function app(){
   return (<>
-    <Navbar/> 
-    <Banner/> 
-    <Bookcard/>
-     <Social/>
+    {/* <Home/> */}
+
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/course" element={<Courses />}/>  
+    </Routes>
   </>)
 }
 

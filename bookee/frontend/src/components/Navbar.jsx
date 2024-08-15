@@ -48,10 +48,10 @@ function Navbar() {
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal space-x-4 text-black text-2xl">
-            <li><a>Home</a></li>
-            <li><a>About</a></li>
-            <li><a>Courses</a></li>
-            <li><a>Contact</a></li>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/about'>About</a></li>
+            <li><a href='/course'>Courses</a></li>
+            <li><a href='/Contact'>Contact</a></li>
           </ul>
         </div>
 
