@@ -6,13 +6,13 @@ function Cards ({item})  {
   return (
     <>
       <div>
-      <div className="card bg-base-100 w-96 shadow-xl hover:scale-105 scroll-smooth">
+      <div className="card bg-base-100 w-80 shadow-xl hover:scale-105 scroll-smooth dark:bg-slate-900 dark:text-white dark:border">
   <figure>
     <img
       src={item.images}
       alt="Shoes" />
   </figure>
-  <div className="card-body">
+  <div className="card-body ">
     <h2 className="card-title">
       {item.name}
       <div className="badge badge-secondary">{item.category}</div>
