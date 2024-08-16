@@ -3,6 +3,7 @@ import Home from "./Landing/Home";
 import Courses from "./Courses/mcourses";
 
 import { Route,Routes } from "react-router-dom";
+import SignUp from "./components/Signup";
 
 
 function app(){
@@ -11,7 +12,8 @@ function app(){
 
     <Routes>
       <Route path="/" element={<Home />}/>
-      <Route path="/course" element={<Courses />}/>  
+      <Route path="/course" element={<Courses />}/>
+      <Route path="/signup" element={<SignUp />}/>  
     </Routes>
   </>)
 }
