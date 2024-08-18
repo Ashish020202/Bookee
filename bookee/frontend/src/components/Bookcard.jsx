@@ -2,12 +2,29 @@ import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Cards from './Cards';
-import blist from '../assets/blist.json';
+// import blist from '../assets/blist.json';
 import Slider from "react-slick";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 function Bookcard() {
-    const filteredBooks = blist.filter((data) => data.category === "free");
-    console.log(filteredBooks);
+    const [book,setBook] = useState([]);
+    useEffect(()=>{
+      const getBook = async ()=>{
+        try{
+          const res =await axios.get("http://localhost:4001/book");
+          const data = res.data.filter((data) => data.category === "free");
+          console.log(data);
+          setBook(data);
+        }catch(error){
+          console.log(error);
+          
+        }
+      };
+      getBook();
+    },[]);
+   
 
     var settings = {
         dots: true,
@@ -54,7 +71,7 @@ function Bookcard() {
 
                 <div>
                     <Slider {...settings}>
-                        {filteredBooks.map((item) => (
+                        {book.map((item) => (
                             <Cards item={item} key={item.id} />
                         ))}
                     </Slider>
