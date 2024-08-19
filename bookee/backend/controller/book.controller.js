@@ -1,6 +1,6 @@
 import Book from "../models/book.model.js";
 
-export async function getBook(req,res){
+export default async function getBook(req,res){
     try {
         const book =await Book.find();
         res.status(200).json(book);
