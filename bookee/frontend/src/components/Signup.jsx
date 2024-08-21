@@ -2,14 +2,50 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Login from './login';
 import { useForm } from "react-hook-form"
+import axios from 'axios';
+
 
 function SignUp() {
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit =async (data) => {
+    console.log(data);
+    
+    const userInfo = {
+      fullname : data.fullname,
+      email: data.email,
+      password:data.password,
+    }
+    await axios.post("http://localhost:4001/user/signup",userInfo)
+      .then((res)=>{
+        console.log(res.data);
+        if(res.data){
+          alert("signup sucessful");
+        }
+
+        localStorage.setItem("Users", JSON.stringify(res.data.user))
+        
+      }).catch((err)=>{
+       if(err.response){
+        console.log(err);
+        alert("error"+err.response.data.mssg);
+       }
+      })
+
+  };
+
+  const handleLoginClick = () => {
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false);
+      navigate('/login');
+    }, 2000); // 2 seconds delay to show the modal
+  };
+  
   return (
     
     <div>
@@ -25,7 +61,7 @@ function SignUp() {
                 placeholder="Enter your name" 
                 className="input input-bordered w-full mt-1"
                 required
-                {...register("text", { required: true })}
+                {...register("fullname", { required: true })}
               />
               {errors.text && <span className='text-red-600'>This field is required</span>}
             </div>
@@ -54,8 +90,8 @@ function SignUp() {
             <div className="modal-action">
               <button type="submit" className="btn btn-success w-72">Sign Up</button>
               <p className='text-lime-900'>Have account?{" "}
-               <button to ="/" className="text-blue-900 ml-1  my-2 underline" onClick={()=>document.getElementById("my_modal_3").showModal()}>Login</button>
-               <Login />
+               <Link to="/" className="text-blue-700 ml-1">Login</Link>{" "}
+              
               
               </p>
             </div>

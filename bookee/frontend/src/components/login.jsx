@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Login() {
@@ -9,13 +10,35 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit =async (data) =>{  console.log(data)
+    
+  const userInfo = {
+    email: data.email,
+    password:data.password,
+  }
+  await axios.post("http://localhost:4001/user/login",userInfo)
+    .then((res)=>{
+      console.log(res.data);
+      if(res.data){
+        alert("Login sucessful");
+      }
+
+      localStorage.setItem("Users", JSON.stringify(res.data.user))
+      
+    }).catch((err)=>{
+     if(err.response){
+      console.log(err);
+      alert("error"+err.response.data.mssg);
+     }
+      
+    })
+  }
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
+            <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={()=>document.getElementById("my_model_3").close()}>✕</Link>
          
           <h3 className="font-bold text-lg">Login</h3>
        
