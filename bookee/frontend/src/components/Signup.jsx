@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Login from './login';
 import { useForm } from "react-hook-form"
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 function SignUp() {
@@ -24,7 +24,8 @@ function SignUp() {
       .then((res)=>{
         console.log(res.data);
         if(res.data){
-          alert("signup sucessful");
+          // alert("signup sucessful");
+          toast.success("signup sucessful");
         }
 
         localStorage.setItem("Users", JSON.stringify(res.data.user))
@@ -32,18 +33,11 @@ function SignUp() {
       }).catch((err)=>{
        if(err.response){
         console.log(err);
-        alert("error"+err.response.data.mssg);
+        // alert("error"+err.response.data.mssg);
+        toast.error("error"+err.response.data.mssg);
        }
       })
 
-  };
-
-  const handleLoginClick = () => {
-    setShowModal(true);
-    setTimeout(() => {
-      setShowModal(false);
-      navigate('/login');
-    }, 2000); // 2 seconds delay to show the modal
   };
   
   return (
