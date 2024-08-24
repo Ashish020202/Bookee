@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Login from './login';
+import { useAuth } from '../context/AuthProvider';
+import Logout from './Logout';
 
 function Navbar() {
+
+  const [Authuser,setAuthuser] = useAuth();
+  console.log(Authuser);
+  
 
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -118,9 +124,13 @@ function Navbar() {
               />
             </svg>
           </label>
+          {useAuth?<Logout/>:
+            <div>
           <a className="btn bg-black text-white md:py-2" 
           onClick={()=> document.getElementById('my_modal_3').showModal()}>Login</a>
           <Login />
+          </div>}
+          
         </div>
       </div>
     </div>
