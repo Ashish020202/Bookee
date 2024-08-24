@@ -22,6 +22,11 @@ function Login() {
       console.log(res.data);
       if(res.data){
         toast.success('Login Successfully');
+        document.getElementById("my_modal_3").close();
+        setTimeout(() => {
+          window.location.reload();
+          localStorage.setItem("Users", JSON.stringify(res.data.user));
+        }, 1000);
       }
 
       localStorage.setItem("Users", JSON.stringify(res.data.user))
@@ -31,6 +36,8 @@ function Login() {
       // console.log(err);
       // alert("error"+err.response.data.mssg);
       toast.error("error"+err.response.data.mssg);
+      setTimeout(() => {}, 2000);
+
      }
       
     })

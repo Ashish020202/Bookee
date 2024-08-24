@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 function SignUp() {
@@ -12,6 +13,9 @@ function SignUp() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
+
   const onSubmit =async (data) => {
     console.log(data);
     
@@ -29,6 +33,8 @@ function SignUp() {
         }
 
         localStorage.setItem("Users", JSON.stringify(res.data.user))
+
+        navigate("/");
         
       }).catch((err)=>{
        if(err.response){
