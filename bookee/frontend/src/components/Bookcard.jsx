@@ -64,10 +64,14 @@ function Bookcard() {
     return (
         <>
             <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 ">
-                <div>
-                    <h1>Courses We Offer</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quis eligendi voluptatem aut odio officia facilis accusamus minima soluta qui at ipsam odit perspiciatis, unde officiis, incidunt cumque sint ea?</p>
-                </div>
+            <div className="text-center my-12">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-400 my-6mb-4">
+                    Discover Our Free Book Collection
+                </h1>
+                <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto">
+                    Explore a curated selection of free books from various genres.
+                </p>
+            </div>
 
                 <div>
                     <Slider {...settings}>
