@@ -24,25 +24,26 @@ function SignUp() {
       email: data.email,
       password:data.password,
     }
-    await axios.post("http://localhost:4001/user/signup",userInfo)
-      .then((res)=>{
+    await axios
+      .post(`${import.meta.env.VITE_API_URL}/signup`, userInfo)
+      .then((res) => {
         console.log(res.data);
-        if(res.data){
+        if (res.data) {
           // alert("signup sucessful");
           toast.success("signup sucessful");
         }
 
-        localStorage.setItem("Users", JSON.stringify(res.data.user))
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
 
         navigate("/");
-        
-      }).catch((err)=>{
-       if(err.response){
-        console.log(err);
-        // alert("error"+err.response.data.mssg);
-        toast.error("error"+err.response.data.mssg);
-       }
       })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err);
+          // alert("error"+err.response.data.mssg);
+          toast.error("error" + err.response.data.mssg);
+        }
+      });
 
   };
   

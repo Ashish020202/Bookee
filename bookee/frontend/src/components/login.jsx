@@ -17,11 +17,12 @@ function Login() {
     email: data.email,
     password:data.password,
   }
-  await axios.post("http://localhost:4001/user/login",userInfo)
-    .then((res)=>{
+  await axios
+    .post(`${import.meta.env.VITE_API_URL}/login`, userInfo)
+    .then((res) => {
       console.log(res.data);
-      if(res.data){
-        toast.success('Login Successfully');
+      if (res.data) {
+        toast.success("Login Successfully");
         document.getElementById("my_modal_3").close();
         setTimeout(() => {
           window.location.reload();
@@ -29,18 +30,16 @@ function Login() {
         }, 1000);
       }
 
-      localStorage.setItem("Users", JSON.stringify(res.data.user))
-      
-    }).catch((err)=>{
-     if(err.response){
-      // console.log(err);
-      // alert("error"+err.response.data.mssg);
-      toast.error("error"+err.response.data.mssg);
-      setTimeout(() => {}, 2000);
-
-     }
-      
+      localStorage.setItem("Users", JSON.stringify(res.data.user));
     })
+    .catch((err) => {
+      if (err.response) {
+        // console.log(err);
+        // alert("error"+err.response.data.mssg);
+        toast.error("error" + err.response.data.mssg);
+        setTimeout(() => {}, 2000);
+      }
+    });
   }
   return (
     <div>
